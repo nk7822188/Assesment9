@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-image: url("./images/sharadesert.jpg");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: repeat-y;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+/* Header */
+.header {
+    margin: 2rem 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    max-width: 75px;
+}
+nav {
+    display: flex;
+    align-items: center;
+}
+.nav__links {
+    list-style-type: none;
+    font-size: 1.2rem;
+    transition: right 1500ms;
+}
+.nav__links li {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 0 2rem;
+}
+.nav__links li a {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+    text-transform: uppercase;
+    transition: 500ms linear;
+}
+.nav__links li a:hover,
+.nav__links li a:focus {
+    text-decoration: 1px underline #fff;
+}
+#menuCheck {
+    display: none;
+}
+.menuIcon {
+    display: none;
+    cursor: pointer;
+}
+/* Main */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 50px;
+}
+/* Main - Content */
+.content__title {
+    font-size: 7rem;
+    margin-bottom: 0;
+}
+.content__para {
+    font-size: 1.2rem;
+}
+.button {
+    outline: none;
+    background-color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    padding: 10px 60px;
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+}
+
+/* Main - Card */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 400px;
+    column-gap: 50px;
+    row-gap: 30px;
+}
+.card {
+    background-color: hsla(0, 0%, 100%, 0.5);
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+.card__content {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-size: 100% 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    padding: 20px 50px;
+    position: relative;
+    overflow: hidden;
+}
+.card__content::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 85%;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    border-radius: 15px;
+    transition: background-color 1500ms;
+}
+.card__title {
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.card__title h2 {
+    margin: 2.5rem 0 0;
+    padding: 0;
+}
+.card .card__title::after {
+    content: "";
+    display: none;
+    margin: 0 auto;
+    width: 0;
+    border: 2px dashed #fff;
+}
+.card__text {
+    position: relative;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 2;
+}
+.card:nth-of-type(1),
+.card:nth-of-type(1) > .card__content {
+    background-image: url("./images/pic-1.png");
+}
+.card:nth-of-type(2),
+.card:nth-of-type(2) > .card__content {
+    background-image: url("./images/pic-2.png");
+}
+.card:nth-of-type(3),
+.card:nth-of-type(3) > .card__content {
+    background-image: url("./images/pic-3.png");
+}
+.card:nth-of-type(4),
+.card:nth-of-type(4) > .card__content {
+    background-image: url("./images/pic-4.png");
+}
+.card:hover .card__content {
+    position: absolute;
+    top: 13%;
+    left: 5%;
+    width: 45%;
+    height: 80%;
+    font-family: "Lobster", cursive;
+    background-image: url("./images/clouds.jpg");
+}
+.card:hover .card__content::before {
+    background-color: hsla(0, 70%, 50%, 0.6);
+}
+.card:hover .card__title {
+    font-size: 4rem;
+}
+.card:hover .card__title::after {
+    display: block;
+    width: 80%;
+}
+.card:hover .card__title h2 {
+    margin: 7rem 0 0;
+    padding: 0;
+}
+.card:hover .card__text {
+    font-size: 2.8rem;
+}
+@media screen and (max-width: 856px) {
+    /* Header */
+    .header {
+        margin: 2rem 0 0;
+    }
+    .logo {
+        max-width: 65px;
+    }
+    .nav__links {
+        font-size: 1rem;
+    }
+    /* Check Box Link */
+    .nav__links {
+        position: fixed;
+        z-index: 2;
+        top: 50px;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: chocolate;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .nav__links li {
+        display: block;
+        margin: 5rem auto;
+    }
+    .menuIcon {
+        display: initial;
+    }
+    #menuCheck:checked ~ .nav__links {
+        right: 0;
+    }
+    /* Main */
+    .split {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        margin: 1rem 0;
+    }
+    /* Main - Content */
+    .content__title {
+        margin: 0;
+        font-size: 2.5rem;
+    }
+    .content__para {
+        font-size: 1rem;
+    }
+    /* Main - Card */
+    .cards {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 350px;
+    }
+    .card__title,
+    .card:hover .card__title {
+        font-size: 1.2rem;
+    }
+    .card__text,
+    .card:hover .card__text {
+        font-size: 1rem;
+    }
+    .card:hover .card__content {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        transform: translateY(-15px);
+        background-image: url("./images/clouds.jpg");
+    }
+    .card:hover .card__title {
+        font-size: 2rem;
+    }
+    .card:hover .card__title h2 {
+        margin: 3rem 0 0;
+    }
+    .card:hover .card__text {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    /* Header */
+    .logo {
+        max-width: 55px;
+    }
+    /* Check Box Link */
+    .nav__links {
+        top: 55px;
+        font-size: 2rem;
+    }
+    .nav__links li {
+        margin: 3rem auto;
+    }
+    /* Main - Card */
+    .cards {
+        grid-auto-rows: 250px;
+    }
+    .card:hover .card__title {
+        font-size: 1.2rem;
+    }
+    .card:hover .card__title h2 {
+        margin: 1rem 0 0;
+    }
+    .card:hover .card__text {
+        font-size: 1rem;
+    }
+}

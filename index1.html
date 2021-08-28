@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+        <style>
+            main {
+                position: relative;
+                display: grid;
+                place-items: center;
+                background-color: hsla(0, 0%, 0%, 0.8);
+                margin: 100px auto;
+                max-width: 80vw;
+                height: 65vh;
+            }
+            main iframe {
+                width: 100%;
+                height: 100%;
+                display: none;
+            }
+            #redirect {
+                display: none;
+            }
+            #redirect ~ label {
+                cursor: pointer;
+            }
+            #redirect:checked ~ label {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            #redirect:checked ~ iframe {
+                display: block;
+            }
+
+            /* Plus Icon */
+            .plus {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: orangered;
+                position: relative;
+            }
+            /* Horizontal Line */
+            .plus::before {
+                content: "";
+                display: block;
+                width: 90%;
+                height: 10%;
+                background-color: #fff;
+                border-radius: 5px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            /* Vertical Line */
+            .plus::after {
+                content: "";
+                display: block;
+                width: 10%;
+                height: 90%;
+                background-color: #fff;
+                border-radius: 5px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            /* Back Icon */
+            #redirect:checked ~ label > .plus {
+                transform: rotate(45deg);
+            }
+            #redirect:checked ~ label > .plus::before {
+                width: 50%;
+                height: 50%;
+                background-color: initial;
+                border: solid #fff;
+                border-width: 0 0 5px 5px;
+                top: 47%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #redirect:checked ~ label > .plus::after {
+                transform: rotate(-135deg);
+                height: 70%;
+                top: 10%;
+                left: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <img class="logo" src="./images/logo.png" alt="Site Logo" />
+                <nav>
+                    <input type="checkbox" name="menuCheck" id="menuCheck" />
+                    <ul class="nav__links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Region</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="./icon.html">Plus Icon</a></li>
+                    </ul>
+                    <label for="menuCheck" class="menuIcon">
+                        <img src="./images/menu.png" alt="menu" />
+                    </label>
+                </nav>
+            </header>
+
+            <main>
+                <input type="checkbox" name="redirect" id="redirect" />
+                <label for="redirect">
+                    <div class="plus"></div>
+                </label>
+                <iframe src="https://shivangamsoni.github.io/Elevation-Academy-Assessments/CSS/Assessment-1/" frameborder="0"></iframe>
+            </main>
+            <i></i>
+        </div>
+    </body>
+</html>
